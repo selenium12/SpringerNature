@@ -42,11 +42,10 @@ The annotated method will be run after all the test methods belonging to the cla
 ## Search result Method:
 Here, search operation is performed with the keyword "Research".Searchresult is stored in the variable 'test'
 ## no result Method:
-Here, search operation is performed with the keyword "+++".NO result message is stored in the variable 'test'
+Here, search operation is performed with the keyword "+++".No result message is stored in the variable 'test'
 
+# Output
+Result is stored in testoutput folder.
 
-
-
-
-
+![Alt text](http://full/path/to/img.jpg "Optional title")
 
