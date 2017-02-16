@@ -23,8 +23,7 @@ public class TestBase {
 		public void tpRegressionSuite() throws InterruptedException, AWTException,
 				FileNotFoundException, UnsupportedEncodingException {
 			
-			//System.out.println("ABOUT US PAGE");
-			// OPEN BROWSER
+			
 
 			driver = new FirefoxDriver();
 			driver.get("http://link.springer.com/");
