@@ -2,39 +2,50 @@ package com.springerNature.selenium.pkg;
 
 	
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+@Test
 public class Homepage extends TestBase {
 
-@Test
-public void test(){
+public static void pagetest(PrintWriter printWriter) throws InterruptedException	
+{
+	WebDriver driver = new FirefoxDriver();
+
 	driver.get("http://link.springer.com/");
-	 WebElement element = driver.findElement(By.name("query"));
-	    element.sendKeys("research");
-	    element.sendKeys(Keys.RETURN);
-	    String itext = driver.findElement( By.cssSelector("div#resInfo-0")).getText();
-	    System.out.println("Search returned '" + itext + "'.");
+	String Search = "Research";
+	//AutoSearch Feature
+	try{
+	WebDriverWait waitst = new WebDriverWait(driver, 0);
+    waitst.until(ExpectedConditions.visibilityOfElementLocated(By.id("query")));
+
+    WebElement sourceTitle = driver.findElement(By.id("query"));
+    
+    sourceTitle.sendKeys(Search); 
+    Thread.sleep(5000);
+    sourceTitle.sendKeys(Keys.ARROW_DOWN);
+    //Thread.sleep(5000);
+    
+    sourceTitle.sendKeys(Keys.ENTER);
+    
+    if(driver.findElement(By.xpath(".//*[@id='main']/div/div[3]/div[2]/h1/span")).getText().toLowerCase().contains(Search))
+    	printWriter.println("Search successful for : " +Search + ". Displayed: " +driver.findElement(By.xpath(".//*[@id='main']/div/div[3]/div[2]/h1/span")).getText() +" page");
+    else
+    	printWriter.println("Search string not found: " +Search);
+    return;
 }
-//Checking positive and no result found scenario
-public static void doCheckAbsentSearchResult(String title, String testGoal) throws IOException {
-    final List<WebElement> allSearchResults = driver.findElements(By
-            .xpath("//*[contains(@class, 'teaser-list')]/li/article/div[2]/h3"));
-    if (allSearchResults.isEmpty()) {
-        final String emptyViewText = driver.findElement(By.xpath("//div[@class='view-empty']")).getText();
-        if (!emptyViewText.contains("no results found")) {
-            throw new RuntimeException(emptyViewText);
-        }
-    } else {
-        for (final WebElement searchResultElement: allSearchResults) {
-            if (searchResultElement.getText().contains(title)) {
-                throw new RuntimeException("");
-            }
-        }
-    }
+catch (Exception e)
+{
+	printWriter.println("Issue"+e);
+	return;
 }
-}
+}}

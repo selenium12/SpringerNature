@@ -1,27 +1,55 @@
 package com.springerNature.selenium.pkg;
 
-import java.util.concurrent.TimeUnit;
+import java.awt.AWTException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-//Initializing the browser
+import org.testng.annotations.Test;
+
 public class TestBase {
-	protected static WebDriver driver;
+	public static class Bookingflow {
+		// static WebDriver driver = new ChromeDriver();
 
-    protected static String result;
-	@BeforeTest
-	public void setUp(){
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		public static  WebDriver driver;
+		protected static String tP_URL;
+
+		@Test
+		public void tpRegressionSuite() throws InterruptedException, AWTException,
+				FileNotFoundException, UnsupportedEncodingException {
 			
-	}
+			//System.out.println("ABOUT US PAGE");
+			// OPEN BROWSER
 
-	@AfterTest
-	  public void tearDown(){
-		  driver.quit(); 
-	  }
-  }
+			driver = new FirefoxDriver();
+			driver.get("http://link.springer.com/");
+			driver.manage().window().maximize();
 
+			// Output file is created
+			String idForTxtFile = new SimpleDateFormat("dd.MM.yyyy_HH.mm.ss")
+					.format(new Date());
+			File file = new File(
+					"P:\\Documentation\\Output\\Output"
+							+ idForTxtFile + ".txt");
+			PrintWriter printWriter = new PrintWriter(file, "UTF-8");
+			printWriter.println("Output File");
+			try{			
+			
+			//Page_Home.pagetest(printWriter);
+				printWriter.close();
+				driver.quit();
+				}
+				catch (Exception e){
+					
+					printWriter.close();
+					
+					
+				}
+	
+  
+		}}}
