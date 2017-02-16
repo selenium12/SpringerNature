@@ -26,3 +26,17 @@ If you plan to install Chrome you need this
 ## TestNG can be installed from eclipse
 Launch the eclipse and click "Install new software" then add Name - TestNG and Location - http://beust.com/eclipse/ and click finish.
 
+# Code
+## TestBase.java
+It serves as a base class to the project in which project setup has been done.
+Here, firefox driver is getting initilized and output file is created for results
+
+# HomePage.java
+## Test Method:
+Here, springer link site is getting launched and search operation is performed with the keyword "Research".
+If results has displayed then it will get stored in Printwriter out put file or it will enter into else loop and display no results found message.
+
+
+
+
+
