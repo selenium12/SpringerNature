@@ -45,7 +45,7 @@ Here, search operation is performed with the keyword "Research".Searchresult is 
 Here, search operation is performed with the keyword "+++".No result message is stored in the variable 'test'
 
 # Output
-Result is stored in testoutput folder.
+Result is stored in testoutput folder.Refer below screenshot
 
-!![alt tag](https://github.com/selenium12/SpringerNature/blob/master/Screen%20Shot%202017-02-16%20at%2015.49.00.png)
+![alt tag](https://github.com/selenium12/SpringerNature/blob/master/Screen%20Shot%202017-02-16%20at%2015.49.00.png)
 
