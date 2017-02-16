@@ -13,12 +13,13 @@ TestNG can generate the report in a readable format like the one shown below.
 
 # Installation
 ## Requirements
-Java 8 JDK
-java and jar on the PATH
-Eclipse
-Selenium library files
-TestNG installation from Eclipse
-ex:
-[Lets go to Quora](https://www.quora.com)
-
+[Lets install Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+Then set java and jar on the PATH
+[Install Eclipse](http://www.eclipse.org/downloads/eclipse-packages/)
+[Install Selenium library files](http://www.seleniumhq.org/download/)
+## Optional requirements
+If you plan to install Chrome you need this
+[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
+## TestNG can be installed from eclipse
+Launch the eclipse and click "Install new software" then add Name - TestNG and Location - http://beust.com/eclipse/ and click finish.
 
