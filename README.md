@@ -47,5 +47,5 @@ Here, search operation is performed with the keyword "+++".No result message is 
 # Output
 Result is stored in testoutput folder.
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+!![alt tag](https://github.com/selenium12/SpringerNature/blob/master/Screen%20Shot%202017-02-16%20at%2015.49.00.png)
 
