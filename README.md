@@ -14,8 +14,11 @@ TestNG can generate the report in a readable format like the one shown below.
 # Installation
 ## Requirements
 [Lets install Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 Then set java and jar on the PATH
+
 [Install Eclipse](http://www.eclipse.org/downloads/eclipse-packages/)
+
 [Install Selenium library files](http://www.seleniumhq.org/download/)
 ## Optional requirements
 If you plan to install Chrome you need this
