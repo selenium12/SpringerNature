@@ -1,54 +1,26 @@
 package com.springerNature.selenium.pkg;
 
-import java.awt.AWTException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class TestBase {
-	public static class Bookingflow {
-		// static WebDriver driver = new ChromeDriver();
-
-		public static  WebDriver driver;
-		protected static String tP_URL;
-
-		@Test
-		public void tpRegressionSuite() throws InterruptedException, AWTException,
-				FileNotFoundException, UnsupportedEncodingException {
-			
-			
-
-			driver = new FirefoxDriver();
-			driver.get("http://link.springer.com/");
-			driver.manage().window().maximize();
-
-			// Output file is created
-			String idForTxtFile = new SimpleDateFormat("dd.MM.yyyy_HH.mm.ss")
-					.format(new Date());
-			File file = new File(
-					"P:\\Documentation\\Output\\Output"
-							+ idForTxtFile + ".txt");
-			PrintWriter printWriter = new PrintWriter(file, "UTF-8");
-			printWriter.println("Output File");
-			try{			
-			
-			//Page_Home.pagetest(printWriter);
-				printWriter.close();
-				driver.quit();
-				}
-				catch (Exception e){
-					
-					printWriter.close();
-					
-					
-				}
 	
-  
-		}}}
+	WebDriver driver = new FirefoxDriver();
+	String currenturl = null;
+	@BeforeTest
+	public void setUp(){
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("http://link.springer.com");	
+	}
+	 @AfterTest
+	  public void tearDown(){
+		  driver.quit(); 
+	  }
+}
